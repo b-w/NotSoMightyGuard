@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotSoMightyGuard", "NotSoMightyGuard\NotSoMightyGuard.csproj", "{FFD02CBC-AFB3-400B-A1A5-A363F22ECA03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotSoMightyGuard.Tests", "NotSoMightyGuard.Tests\NotSoMightyGuard.Tests.csproj", "{790125F2-C35C-4B88-9361-1EABCACC22DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FFD02CBC-AFB3-400B-A1A5-A363F22ECA03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFD02CBC-AFB3-400B-A1A5-A363F22ECA03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFD02CBC-AFB3-400B-A1A5-A363F22ECA03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{790125F2-C35C-4B88-9361-1EABCACC22DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{790125F2-C35C-4B88-9361-1EABCACC22DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{790125F2-C35C-4B88-9361-1EABCACC22DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{790125F2-C35C-4B88-9361-1EABCACC22DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
