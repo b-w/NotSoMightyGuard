@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <Version>0.1.0</Version>
+    <Authors>Bart Wolff</Authors>
+    <Company>Bart Wolff</Company>
+    <Description>Not-So-Mighty Guard library for argument validation using fluent expressions.</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>D:\DEV\bw.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+</Project>
