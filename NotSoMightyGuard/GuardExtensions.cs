@@ -8,7 +8,7 @@
         {
             foreach (var assertion in source.Assertions)
             {
-                assertion.Check(source.GuardExpression.ArgumentValue, source.GuardExpression.ArgumentName);
+                assertion.CheckAndThrow(source.GuardExpression.ArgumentValue, source.GuardExpression.ArgumentName);
             }
         }
     }
