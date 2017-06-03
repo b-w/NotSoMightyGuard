@@ -12,16 +12,16 @@
 
         internal T TargetValue { get; }
 
-        internal override bool Check(T value, string name)
+        internal override bool Check(T value)
         {
             return value.CompareTo(TargetValue) > 0;
         }
 
         internal override void CheckAndThrow(T value, string name)
         {
-            if (!Check(value, name))
+            if (!Check(value))
             {
-                throw new ArgumentException($"Value was not greater than {TargetValue}.", name);
+                throw new ArgumentException($"Value <{value}> was not greater than <{TargetValue}>.", name);
             }
         }
     }

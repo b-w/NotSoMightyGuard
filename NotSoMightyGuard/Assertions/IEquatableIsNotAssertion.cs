@@ -12,16 +12,16 @@
 
         internal T TargetValue { get; }
 
-        internal override bool Check(T value, string name)
+        internal override bool Check(T value)
         {
             return !value.Equals(other: TargetValue);
         }
 
         internal override void CheckAndThrow(T value, string name)
         {
-            if (!Check(value, name))
+            if (!Check(value))
             {
-                throw new ArgumentException($"Value was equal to {TargetValue}.", name);
+                throw new ArgumentException($"Value <{value}> was equal to <{TargetValue}>.", name);
             }
         }
     }
