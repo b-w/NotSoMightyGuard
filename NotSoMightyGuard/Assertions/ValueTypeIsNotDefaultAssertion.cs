@@ -2,7 +2,7 @@
 {
     using System;
 
-    internal class IsNotDefaultAssertion<T> : Assertion<T>
+    internal class ValueTypeIsNotDefaultAssertion<T> : Assertion<T>
         where T : struct
     {
         internal override void Check(T value, string name)

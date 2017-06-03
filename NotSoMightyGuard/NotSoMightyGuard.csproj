@@ -11,4 +11,8 @@
     <AssemblyOriginatorKeyFile>D:\DEV\bw.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="GuardExtensions.String.cs" />
+  </ItemGroup>
+
 </Project>

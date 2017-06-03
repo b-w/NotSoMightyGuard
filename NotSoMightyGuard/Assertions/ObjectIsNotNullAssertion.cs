@@ -2,7 +2,7 @@
 {
     using System;
 
-    internal class IsNotNullAssertion<T> : Assertion<T>
+    internal class ObjectIsNotNullAssertion<T> : Assertion<T>
         where T : class
     {
         internal override void Check(T value, string name)
