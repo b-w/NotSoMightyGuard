@@ -10,12 +10,14 @@
             return Enum.IsDefined(typeof(T), value);
         }
 
-        internal override void CheckAndThrow(T value, string name)
+        internal override void Throw(T value, string name)
         {
-            if (!Check(value))
-            {
-                throw new ArgumentException($"Value <{value}> is not defined for Enum of type <{typeof(T)}>.", name);
-            }
+            throw new ArgumentException($"Value <{value}> is not defined for Enum of type <{typeof(T)}>.", name);
+        }
+
+        internal override void ThrowForNegation(T value, string name)
+        {
+            throw new ArgumentException($"Value <{value}> is defined for Enum of type <{typeof(T)}>.", name);
         }
     }
 }

@@ -34,29 +34,29 @@
             // assert
         }
 
-        [TestMethod, ExpectedException(typeof(ArgumentException))]
-        public void Guard_IsNot_Should_Throw_When_Value_Equals_Target()
+        [TestMethod]
+        public void Guard_Not_Is_Should_Not_Throw_When_Value_Not_Equal_To_Target()
         {
             // arrange
             int value = 13;
 
             // act
             Guard.EnsureThat(value)
-                .IsNot(13)
+                .Not.Is(42)
                 .ThrowOnFailure();
 
             // assert
         }
 
-        [TestMethod]
-        public void Guard_IsNot_Should_Not_Throw_When_Value_Not_Equal_To_Target()
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void Guard_Not_Is_Should_Throw_When_Value_Equals_Target()
         {
             // arrange
             int value = 42;
 
             // act
             Guard.EnsureThat(value)
-                .IsNot(13)
+                .Not.Is(42)
                 .ThrowOnFailure();
 
             // assert

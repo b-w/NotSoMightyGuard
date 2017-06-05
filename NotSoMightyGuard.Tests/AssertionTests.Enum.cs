@@ -42,6 +42,34 @@
             // assert
         }
 
+        [TestMethod]
+        public void Guard_Not_IsValidEnum_Should_Not_Throw_When_Given_Invalid_Enum()
+        {
+            // arrange
+            TestEnum value = (TestEnum)99;
+
+            // act
+            Guard.EnsureThat(value)
+                .Not.IsValidEnum()
+                .ThrowOnFailure();
+
+            // assert
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void Guard_Not_IsValidEnum_Should_Throw_When_Given_Valid_Enum()
+        {
+            // arrange
+            TestEnum value = TestEnum.Beta;
+
+            // act
+            Guard.EnsureThat(value)
+                .Not.IsValidEnum()
+                .ThrowOnFailure();
+
+            // assert
+        }
+
         [TestMethod, ExpectedException(typeof(ArgumentException))]
         public void Guard_HasFlag_Should_Throw_When_Given_Value_Does_Not_Have_Flag()
         {
@@ -65,6 +93,34 @@
             // act
             Guard.EnsureThat(value)
                 .HasFlag(TestEnum.Beta)
+                .ThrowOnFailure();
+
+            // assert
+        }
+
+        [TestMethod]
+        public void Guard_Not_HasFlag_Should_Not_Throw_When_Given_Value_Does_Not_Have_Flag()
+        {
+            // arrange
+            TestEnum value = TestEnum.Gamma;
+
+            // act
+            Guard.EnsureThat(value)
+                .Not.HasFlag(TestEnum.Alpha)
+                .ThrowOnFailure();
+
+            // assert
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void Guard_Not_HasFlag_Should_Throw_When_Given_Value_Has_Flag()
+        {
+            // arrange
+            TestEnum value = TestEnum.Beta;
+
+            // act
+            Guard.EnsureThat(value)
+                .Not.HasFlag(TestEnum.Beta)
                 .ThrowOnFailure();
 
             // assert

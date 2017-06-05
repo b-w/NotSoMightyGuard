@@ -14,5 +14,10 @@
         internal GuardExpression<T> GuardExpression { get; }
 
         internal ICollection<Assertion<T>> Assertions { get; } = new List<Assertion<T>>();
+
+        public AssertionNegationExpression<AssertionExpression<T>> Not
+        {
+            get => new AssertionNegationExpression<AssertionExpression<T>>(this);
+        }
     }
 }

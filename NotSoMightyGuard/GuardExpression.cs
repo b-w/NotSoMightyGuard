@@ -16,5 +16,10 @@
         internal T ArgumentValue { get; }
 
         internal string ArgumentName { get; }
+
+        public AssertionNegationExpression<GuardExpression<T>> Not
+        {
+            get => new AssertionNegationExpression<GuardExpression<T>>(this);
+        }
     }
 }

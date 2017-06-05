@@ -17,6 +17,17 @@
             return source;
         }
 
+        public static AssertionExpression<T> Matches<T>(this AssertionNegationExpression<GuardExpression<T>> source, Predicate<T> predicate)
+        {
+            return Matches(new AssertionExpression<T>(source.Parent).Not, predicate);
+        }
+
+        public static AssertionExpression<T> Matches<T>(this AssertionNegationExpression<AssertionExpression<T>> source, Predicate<T> predicate)
+        {
+            source.Parent.Assertions.Add(new NegationAssertion<T>(new PredicateAssertion<T>(predicate)));
+            return source.Parent;
+        }
+
         public static void ThrowOnFailure<T>(this AssertionExpression<T> source)
         {
             foreach (var assertion in source.Assertions)

@@ -16,12 +16,14 @@
             return Predicate(value);
         }
 
-        internal override void CheckAndThrow(T value, string name)
+        internal override void Throw(T value, string name)
         {
-            if (!Check(value))
-            {
-                throw new ArgumentException($"Value <{value}> did not match predicate.", name);
-            }
+            throw new ArgumentException($"Value <{value}> did not match predicate.", name);
+        }
+
+        internal override void ThrowForNegation(T value, string name)
+        {
+            throw new ArgumentException($"Value <{value}> matched predicate.", name);
         }
     }
 }

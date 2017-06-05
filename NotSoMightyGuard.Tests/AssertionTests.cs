@@ -36,5 +36,33 @@ namespace NotSoMightyGuard.Tests
 
             // assert
         }
+
+        [TestMethod]
+        public void Guard_Not_Matches_Should_Not_Throw_When_Value_Does_Not_Match_Predicate()
+        {
+            // arrange
+            int value = 13;
+
+            // act
+            Guard.EnsureThat(value)
+                .Not.Matches(x => x == 42)
+                .ThrowOnFailure();
+
+            // assert
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void Guard_Not_Matches_Should_Throw_When_Value_Matches_Predicate()
+        {
+            // arrange
+            int value = 42;
+
+            // act
+            Guard.EnsureThat(value)
+                .Not.Matches(x => x == 42)
+                .ThrowOnFailure();
+
+            // assert
+        }
     }
 }

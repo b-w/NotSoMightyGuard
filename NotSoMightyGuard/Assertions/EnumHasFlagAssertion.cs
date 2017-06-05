@@ -30,12 +30,14 @@
             return enumValue.HasFlag(flagValue);
         }
 
-        internal override void CheckAndThrow(T value, string name)
+        internal override void Throw(T value, string name)
         {
-            if (!Check(value))
-            {
-                throw new ArgumentException($"Value <{value}> did not have flag <{TargetValue}>.", name);
-            }
+            throw new ArgumentException($"Value <{value}> did not have flag <{TargetValue}>.", name);
+        }
+
+        internal override void ThrowForNegation(T value, string name)
+        {
+            throw new ArgumentException($"Value <{value}> had flag <{TargetValue}>.", name);
         }
     }
 }
