@@ -24,5 +24,37 @@
                 assertion.CheckAndThrow(source.GuardExpression.ArgumentValue, source.GuardExpression.ArgumentName);
             }
         }
+
+        public static T GetValueOrThrow<T>(this AssertionExpression<T> source)
+        {
+            ThrowOnFailure(source);
+            return source.GuardExpression.ArgumentValue;
+        }
+
+        public static T GetValueOrDefault<T>(this AssertionExpression<T> source)
+        {
+            foreach (var assertion in source.Assertions)
+            {
+                if (!assertion.Check(source.GuardExpression.ArgumentValue))
+                {
+                    return default(T);
+                }
+            }
+
+            return source.GuardExpression.ArgumentValue;
+        }
+
+        public static T GetValueOrDefault<T>(this AssertionExpression<T> source, T defaultValue)
+        {
+            foreach (var assertion in source.Assertions)
+            {
+                if (!assertion.Check(source.GuardExpression.ArgumentValue))
+                {
+                    return defaultValue;
+                }
+            }
+
+            return source.GuardExpression.ArgumentValue;
+        }
     }
 }
